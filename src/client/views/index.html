@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://use.fontawesome.com/b3cae6aecc.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
+
+  <title>Travel App</title>
+</head>
+
+<body>
+
+  <div id="app">
+    <div id="user">
+
+      <div class="holder city">
+        <label for="city">What is your travel destination?</label>
+        <input type="text" id="city">
+      </div>
+      <div class="holder feel">
+        <label for="arrival">When do you expect to arrive?</label>
+        <input type="date" class="myInput" id="arrival_day" onfocus="this.placeholder = ''"
+          onblur="this.placeholder = 'Enter your arrivalDay date here' "><br>
+        <button id="generate" class="btn" type="submit"> Submit </button><br>
+      </div>
+    </div>
+
+    <div id="response" class="holder entry">
+      <div id="nextTrip" class="title">Next trip</div>
+      <div id="entryHolder">
+        <div id="date"></div>
+        <div id="country"></div>
+        <div id="cont"></div>
+        <div id="temp"></div>
+        <div id="countdown"></div><br>
+        <div id="picture"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Check that service workers are supported
+    if ('serviceWorker' in navigator) {
+      // Use the window load event to keep the page load performant
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js');
+      });
+    }
+  </script>
+
+</body>
+
+</html>
